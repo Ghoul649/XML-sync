@@ -50,3 +50,80 @@
   </FromLeft>
 </root>
 ```
+
+Правий вхідний файл:
+```xml
+<root>
+  <equal>
+    <first first="1" second="2">
+      1
+    </first>
+    <second first="1" second="2">
+      1
+    </second>
+  </equal>
+  <unequal first="1" fromright="2">
+    <first first="1" second="2">
+      1
+    </first>
+    <second first="1">
+      1
+    </second>
+  </unequal>
+  <FromRight>
+    <first first="1" second="2">
+      1
+    </first>
+    <second first="1" second="2">
+      1
+    </second>
+  </FromRight>
+</root>
+```
+
+Результат виконання синхронізації(з параметрами: ~~From right~~; ~~From left~~; ~~Unequal~~)
+```xml
+<root>
+  <equal>
+    <first first="1" second="2">
+      1
+    </first>
+    <second first="1" second="2">
+      1
+    </second>
+  </equal>
+  <FromLeft />
+  <FromRight />
+</root>
+```
+
+
+Результат виконання синхронізації(з параметрами: From right; ~~From left~~; Unequal From left)
+```xml
+<root>
+  <equal>
+    <first first="1" second="2">
+      1
+    </first>
+    <second first="1" second="2">
+      1
+    </second>
+  </equal>
+  <unequal first="2">
+    <first first="2" second="2">
+      4
+    </first>
+    <second first="1">
+      3
+    </second>
+  </unequal>
+  <FromRight>
+    <first first="1" second="2">
+      1
+    </first>
+    <second first="1" second="2">
+      1
+    </second>
+  </FromRight>
+</root>
+```
